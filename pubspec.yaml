@@ -21,10 +21,8 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  get: any
   flutter:
     sdk: flutter
-  flutter_svg:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -34,6 +32,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   animated_splash_screen: ^1.1.0
+  get: ^4.1.4
   introduction_screen: ^2.1.0
 
 # For information on the generic Dart part of this file, see the
@@ -52,6 +51,8 @@ flutter:
     - assets/intro_1.png
     - assets/intro_2.png
     - assets/intro_3.png
+    - assets/top_right_decoration.png
+    - assets/logo_only.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
