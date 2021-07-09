@@ -104,7 +104,7 @@ class IntroPage extends StatelessWidget {
                         return ElevatedButton(
                           onPressed: () {
                             // Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()),);
-                            Get.to(LoginPage());
+                            Get.off(LoginPage());
                           }, 
                           child: Text("Get Started", style: TextStyle(fontSize: 18),),
                           style: ElevatedButton.styleFrom(
