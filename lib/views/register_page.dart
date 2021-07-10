@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phr_app_final/controllers/register_controller.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class RegisterPage extends StatelessWidget {
+  static final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    //TextController
     final registerController = Get.put(RegisterController());
-    final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
         resizeToAvoidBottomInset: false,
@@ -45,6 +48,7 @@ class RegisterPage extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 15.0, vertical: 5.0),
                           child: TextFormField(
+                            controller: registerController.nameController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Field Required';
@@ -81,6 +85,8 @@ class RegisterPage extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 15.0, vertical: 5.0),
                           child: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: registerController.phoneController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Field Required';
@@ -254,6 +260,8 @@ class RegisterPage extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 15.0, vertical: 5.0),
                           child: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: registerController.nikController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Field Required';
@@ -290,6 +298,8 @@ class RegisterPage extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 15.0, vertical: 5.0),
                           child: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: registerController.bpjsController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Field Required';
@@ -326,6 +336,7 @@ class RegisterPage extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 15.0, vertical: 5.0),
                           child: TextFormField(
+                            controller: registerController.addressController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Field Required';
@@ -395,7 +406,13 @@ class RegisterPage extends StatelessWidget {
                           width: width / 1.5,
                           child: MaterialButton(
                               onPressed: () async {
-                                if (_formKey.currentState!.validate()) {}
+                                if (_formKey.currentState!.validate()) {
+                                  String result = await registerController
+                                      .postPatientData();
+                                  EasyLoading.showToast(result,
+                                      toastPosition:
+                                          EasyLoadingToastPosition.bottom);
+                                }
                               },
                               child: Text("Register",
                                   style: TextStyle(

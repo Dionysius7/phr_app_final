@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "276224395931",
+    "firebase_url": "https://phr-api-default-rtdb.firebaseio.com",
+    "project_id": "phr-api",
+    "storage_bucket": "phr-api.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276224395931:android:83e931cffc080bf772d43e",
+        "android_client_info": {
+          "package_name": "com.example.phr_app_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276224395931-3s84d63jts1i9bfsfj882smjt340jvd2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.phr_app_final",
+            "certificate_hash": "03a6bc9baa2388a28a4e658d1bf0d189a9241643"
+          }
+        },
+        {
+          "client_id": "276224395931-e606q45cj5knt6mfahmhskqkklllfda6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHzFf0APTatl1gpxcBtWRwK58Ue1v2_YI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276224395931-e606q45cj5knt6mfahmhskqkklllfda6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

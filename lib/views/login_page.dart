@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:phr_app_final/controllers/login_controller.dart';
+import 'package:phr_app_final/controllers/patient_controller.dart';
+import 'package:phr_app_final/models/user.dart';
+import 'package:phr_app_final/views/otp_page.dart';
 import 'package:phr_app_final/views/register_page.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final loginController = Get.put(LoginController());
+    final patientDataController = Get.put(PatientController());
+    final TextEditingController phoneLoginController =
+        Get.put(TextEditingController());
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -49,7 +58,9 @@ class LoginPage extends StatelessWidget {
                     width: width / 1.5,
                     child: Align(
                       alignment: Alignment.topLeft,
-                      child: TextField(
+                      child: TextFormField(
+                        keyboardType: TextInputType.phone,
+                        controller: phoneLoginController,
                         cursorColor: Colors.indigo,
                         textAlign: TextAlign.start,
                         style: TextStyle(color: Colors.black),
@@ -70,7 +81,22 @@ class LoginPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 25),
                   width: width / 1.5,
                   child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        //Get Phone Number, Set to Controller Obx
+                        EasyLoading.show(
+                            status: "Loading...",
+                            maskType: EasyLoadingMaskType.black);
+                        List<UserModel> data = await patientDataController
+                            .fetchPatientByPhone(phoneLoginController.text);
+                        EasyLoading.dismiss();
+                        if (data.isEmpty) {
+                          EasyLoading.showError("Number Not Registered");
+                        } else {
+                          loginController
+                              .setPhoneNumber(phoneLoginController.text);
+                          Get.off(OtpPage());
+                        }
+                      },
                       child: Text("Login",
                           style: TextStyle(
                             fontSize: 20,
