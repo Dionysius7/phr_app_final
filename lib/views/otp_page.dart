@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phr_app_final/controllers/login_controller.dart';
 import 'package:phr_app_final/controllers/patient_controller.dart';
-import 'package:phr_app_final/models/user.dart';
 import 'package:pinput/pin_put/pin_put.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
 
@@ -15,10 +13,10 @@ class OtpPage extends StatelessWidget {
   final _pinPutController = TextEditingController();
   final _pinPutFocusNode = FocusNode();
   final BoxDecoration pinPutDecoration = BoxDecoration(
-    color: Colors.indigo[200],
+    color: Color(0xFFc7c9e5),
     borderRadius: BorderRadius.circular(10.0),
     border: Border.all(
-      color: Colors.indigo,
+      color: Color(0xFFc7c9e5),
     ),
   );
   @override
@@ -89,7 +87,7 @@ class OtpPage extends StatelessWidget {
                       width: width / 1.5,
                       padding: EdgeInsets.symmetric(vertical: 15),
                       child: MaterialButton(
-                        color: Colors.indigo,
+                        color: Color(0xFF494da0),
                         textColor: Colors.white,
                         padding: EdgeInsets.all(13),
                         shape: new RoundedRectangleBorder(

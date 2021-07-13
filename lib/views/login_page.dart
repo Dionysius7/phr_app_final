@@ -61,7 +61,7 @@ class LoginPage extends StatelessWidget {
                       child: TextFormField(
                         keyboardType: TextInputType.phone,
                         controller: phoneLoginController,
-                        cursorColor: Colors.indigo,
+                        cursorColor: Color(0xFF494da0),
                         textAlign: TextAlign.start,
                         style: TextStyle(color: Colors.black),
                         textAlignVertical: TextAlignVertical.bottom,
@@ -72,9 +72,11 @@ class LoginPage extends StatelessWidget {
                             fillColor: Colors.black,
                             hintStyle: TextStyle(color: Colors.black),
                             enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.indigo)),
+                                borderSide:
+                                    BorderSide(color: Color(0xFF494da0))),
                             focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.indigo))),
+                                borderSide:
+                                    BorderSide(color: Color(0xFF494da0)))),
                       ),
                     )),
                 Container(
@@ -101,7 +103,7 @@ class LoginPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 20,
                           )),
-                      color: Colors.indigo,
+                      color: Color(0xFF494da0),
                       textColor: Colors.white,
                       padding: EdgeInsets.all(13),
                       shape: new RoundedRectangleBorder(
@@ -135,7 +137,7 @@ class LoginPage extends StatelessWidget {
                               child: Text(
                                 "Sign Up",
                                 style: TextStyle(
-                                    color: Colors.indigo,
+                                    color: Color(0xFF494da0),
                                     fontWeight: FontWeight.bold),
                               ),
                             )),

@@ -55,7 +55,7 @@ class RegisterPage extends StatelessWidget {
                               }
                               return null;
                             },
-                            cursorColor: Colors.indigo,
+                            cursorColor: Color(0xFF494da0),
                             textAlign: TextAlign.start,
                             style: TextStyle(color: Colors.black),
                             textAlignVertical: TextAlignVertical.bottom,
@@ -75,10 +75,10 @@ class RegisterPage extends StatelessWidget {
                                 hintStyle: TextStyle(color: Colors.black),
                                 enabledBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Colors.indigo)),
+                                        BorderSide(color: Color(0xFF494da0))),
                                 focusedBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Colors.indigo))),
+                                        BorderSide(color: Color(0xFF494da0)))),
                           ),
                         ),
                         Padding(
@@ -93,7 +93,7 @@ class RegisterPage extends StatelessWidget {
                               }
                               return null;
                             },
-                            cursorColor: Colors.indigo,
+                            cursorColor: Color(0xFF494da0),
                             textAlign: TextAlign.start,
                             style: TextStyle(color: Colors.black),
                             textAlignVertical: TextAlignVertical.bottom,
@@ -113,10 +113,10 @@ class RegisterPage extends StatelessWidget {
                                 hintStyle: TextStyle(color: Colors.black),
                                 enabledBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Colors.indigo)),
+                                        BorderSide(color: Color(0xFF494da0))),
                                 focusedBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Colors.indigo))),
+                                        BorderSide(color: Color(0xFF494da0)))),
                           ),
                         ),
                         Padding(
@@ -131,7 +131,7 @@ class RegisterPage extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       border: Border(
                                           bottom: BorderSide(
-                                              color: Colors.indigo))),
+                                              color: Color(0xFF494da0)))),
                                   child: Row(
                                     children: [
                                       Expanded(
@@ -191,7 +191,7 @@ class RegisterPage extends StatelessWidget {
                                     decoration: BoxDecoration(
                                         border: Border(
                                             bottom: BorderSide(
-                                                color: Colors.indigo))),
+                                                color: Color(0xFF494da0)))),
                                     child: Row(
                                       children: [
                                         Container(
@@ -268,7 +268,7 @@ class RegisterPage extends StatelessWidget {
                               }
                               return null;
                             },
-                            cursorColor: Colors.indigo,
+                            cursorColor: Color(0xFF494da0),
                             textAlign: TextAlign.start,
                             style: TextStyle(color: Colors.black),
                             textAlignVertical: TextAlignVertical.bottom,
@@ -288,10 +288,10 @@ class RegisterPage extends StatelessWidget {
                                 hintStyle: TextStyle(color: Colors.black),
                                 enabledBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Colors.indigo)),
+                                        BorderSide(color: Color(0xFF494da0))),
                                 focusedBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Colors.indigo))),
+                                        BorderSide(color: Color(0xFF494da0)))),
                           ),
                         ),
                         Padding(
@@ -306,7 +306,7 @@ class RegisterPage extends StatelessWidget {
                               }
                               return null;
                             },
-                            cursorColor: Colors.indigo,
+                            cursorColor: Color(0xFF494da0),
                             textAlign: TextAlign.start,
                             style: TextStyle(color: Colors.black),
                             textAlignVertical: TextAlignVertical.bottom,
@@ -326,10 +326,10 @@ class RegisterPage extends StatelessWidget {
                                 hintStyle: TextStyle(color: Colors.black),
                                 enabledBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Colors.indigo)),
+                                        BorderSide(color: Color(0xFF494da0))),
                                 focusedBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Colors.indigo))),
+                                        BorderSide(color: Color(0xFF494da0)))),
                           ),
                         ),
                         Padding(
@@ -343,7 +343,7 @@ class RegisterPage extends StatelessWidget {
                               }
                               return null;
                             },
-                            cursorColor: Colors.indigo,
+                            cursorColor: Color(0xFF494da0),
                             textAlign: TextAlign.start,
                             style: TextStyle(color: Colors.black),
                             textAlignVertical: TextAlignVertical.bottom,
@@ -363,10 +363,10 @@ class RegisterPage extends StatelessWidget {
                                 hintStyle: TextStyle(color: Colors.black),
                                 enabledBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Colors.indigo)),
+                                        BorderSide(color: Color(0xFF494da0))),
                                 focusedBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Colors.indigo))),
+                                        BorderSide(color: Color(0xFF494da0)))),
                           ),
                         ),
                         Container(
@@ -390,7 +390,7 @@ class RegisterPage extends StatelessWidget {
                                           recognizer: TapGestureRecognizer()),
                                     ])),
                                 value: registerController.checkedBox.value,
-                                activeColor: Colors.indigo[400],
+                                activeColor: Color(0xFF8385c0),
                                 checkColor: Colors.white,
                                 contentPadding:
                                     EdgeInsets.symmetric(horizontal: 10),
@@ -418,7 +418,7 @@ class RegisterPage extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 20,
                                   )),
-                              color: Colors.indigo,
+                              color: Color(0xFF494da0),
                               textColor: Colors.white,
                               padding: EdgeInsets.all(13),
                               shape: new RoundedRectangleBorder(
@@ -456,7 +456,7 @@ class RegisterPage extends StatelessWidget {
                               child: Text(
                                 "Sign In",
                                 style: TextStyle(
-                                    color: Colors.indigo,
+                                    color: Color(0xFF494da0),
                                     fontWeight: FontWeight.bold),
                               ),
                             )),
