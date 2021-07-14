@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:phr_app_final/views/login_page.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfileController extends GetxController {
   final sessionData = GetStorage();
@@ -28,5 +29,9 @@ class ProfileController extends GetxController {
     Get.offAll(LoginPage());
     EasyLoading.showToast("Log out successful",
         toastPosition: EasyLoadingToastPosition.bottom);
+  }
+
+  Future<void> callContact(String phoneNumber) async {
+    await launch('tel:$phoneNumber');
   }
 }

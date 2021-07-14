@@ -430,8 +430,9 @@ class ProfilePage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          onPressed: () {
-                            // launch(profileController.contactUrl.toString());
+                          onPressed: () async {
+                            await profileController
+                                .callContact('+6287808782609');
                           },
                         ),
                       )
