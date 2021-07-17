@@ -4,23 +4,42 @@ import 'package:get/get.dart';
 import 'package:phr_app_final/const.dart';
 import 'package:phr_app_final/models/notification.dart';
 import 'package:phr_app_final/service.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:phr_app_final/utils/user_preferences.dart';
+// import 'package:get_storage/get_storage.dart';
 
-class NotifDataController extends GetxController {
-  var notification = <NotifModel>[].obs;
+class NotificationController extends GetxController {
+  var allNotification = <NotifModel>[].obs;
+  RxList<NotifModel> dataHistory = <NotifModel>[].obs;
+  RxList<NotifModel> dataNotification = <NotifModel>[].obs;
   var service = new Service();
   var constant = new Const();
-  GetStorage sessionData = GetStorage();
+  // GetStorage sessionData = GetStorage();
 
-  void fetchNotifData() async {
+  Future<String> fetchNotifData() async {
     var response = await service.getAllNotifData(
-        constant.phrNotifGet, sessionData.read("patientId"));
+        constant.phrNotifGet, UserPreferences.getPatientId());
     if (response.statusCode == 200) {
       var notifData = notifModelFromJson(response.body);
-      print(notifData);
-      notification.value = notifData;
-    } else {
+      allNotification.value = notifData;
       print(response.statusCode);
+      return response.statusCode.toString();
+    } else {
+      //Empty = 400?
+      print(response.statusCode);
+      return response.statusCode.toString();
+    }
+  }
+
+  void checkStatus() {
+    //Biar gak double datanya
+    dataNotification.clear();
+    dataHistory.clear();
+    for (var item in allNotification) {
+      if (item.status == "pending") {
+        dataNotification.add(item);
+      } else {
+        dataHistory.add(item);
+      }
     }
   }
 

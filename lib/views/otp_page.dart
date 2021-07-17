@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:phr_app_final/controllers/login_controller.dart';
 import 'package:phr_app_final/controllers/patient_controller.dart';
 import 'package:pinput/pin_put/pin_put.dart';
-import 'package:get_storage/get_storage.dart';
+// import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
 
 class OtpPage extends StatelessWidget {
   final patientDataController = Get.put(PatientController());
   final loginController = Get.put(LoginController());
-  final sessionData = GetStorage();
+  // final sessionData = GetStorage();
   final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
   final _pinPutController = TextEditingController();
   final _pinPutFocusNode = FocusNode();

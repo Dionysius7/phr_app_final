@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:phr_app_final/controllers/slider_controller.dart';
 import 'package:get/get.dart';
+import 'package:phr_app_final/utils/user_preferences.dart';
 import 'package:phr_app_final/views/login_page.dart';
+// import 'package:get_storage/get_storage.dart';
 
 class IntroPage extends StatelessWidget {
   final _controller = SliderController();
+  // final sessionData = GetStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -123,6 +126,8 @@ class IntroPage extends StatelessWidget {
                         return ElevatedButton(
                             onPressed: () {
                               // Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()),);
+                              // sessionData.write("firstTime", "false");
+                              UserPreferences.setFirstTimeStatus(false);
                               Get.off(LoginPage());
                             },
                             child: Text(

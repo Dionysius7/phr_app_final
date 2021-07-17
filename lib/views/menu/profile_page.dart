@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:phr_app_final/controllers/profile_controller.dart';
+import 'package:phr_app_final/utils/user_preferences.dart';
 import 'package:phr_app_final/views/menu/notification_page.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+// import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatelessWidget {
-  final sessionData = GetStorage();
+  // final sessionData = GetStorage();
   final profileController = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
@@ -18,21 +19,8 @@ class ProfilePage extends StatelessWidget {
           backgroundColor: Color(0xFF494da0),
           title: Padding(
             padding: const EdgeInsets.only(left: 5.0),
-            child: Image.asset(
-              'assets/text_logo.png',
-              width: size.width / 2,
-            ),
+            child: Text("Profile"),
           ),
-          actions: [
-            InkWell(
-                onTap: () {
-                  Get.to(NotificationPage());
-                },
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 15.0),
-                  child: Icon(Icons.notifications),
-                ))
-          ],
         ),
         body: Container(
             color: Color(0xFFe2e7f1),
@@ -53,7 +41,7 @@ class ProfilePage extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          (sessionData.read("patientGender") == "Male")
+                          (UserPreferences.getPatientGender() == "Male")
                               ? Image.asset(
                                   'assets/male_aura.png',
                                   width: size.width / 2.5,
@@ -62,7 +50,7 @@ class ProfilePage extends StatelessWidget {
                                   'assets/female_aura.png',
                                   width: size.width / 2.5,
                                 ),
-                          Text(sessionData.read("patientName"),
+                          Text(UserPreferences.getPatientName().toString(),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xff494da0),
@@ -112,7 +100,8 @@ class ProfilePage extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Text(sessionData.read("patientId")),
+                                        Text(UserPreferences.getPatientId()
+                                            .toString()),
                                       ],
                                     ),
                                   ],
@@ -150,8 +139,9 @@ class ProfilePage extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Text(sessionData
-                                            .read("patientPhoneNumber")),
+                                        Text(UserPreferences
+                                                .getPatientPhoneNumber()
+                                            .toString()),
                                       ],
                                     ),
                                   ],
@@ -189,7 +179,8 @@ class ProfilePage extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Text(sessionData.read("patientGender")),
+                                        Text(UserPreferences.getPatientGender()
+                                            .toString()),
                                       ],
                                     ),
                                   ],
@@ -227,7 +218,8 @@ class ProfilePage extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Text(sessionData.read("patientNik")),
+                                        Text(UserPreferences.getPatientNik()
+                                            .toString()),
                                       ],
                                     ),
                                   ],
@@ -265,7 +257,8 @@ class ProfilePage extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Text(sessionData.read("patientBpjs")),
+                                        Text(UserPreferences.getPatientBpjs()
+                                            .toString()),
                                       ],
                                     ),
                                   ],
@@ -303,8 +296,8 @@ class ProfilePage extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Text(
-                                            sessionData.read("patientAddress")),
+                                        Text(UserPreferences.getPatientAddress()
+                                            .toString()),
                                       ],
                                     ),
                                   ],
@@ -344,8 +337,8 @@ class ProfilePage extends StatelessWidget {
                                       children: [
                                         Text(DateFormat("yyyy-MM-dd").format(
                                             DateFormat("yyyy-MM-dd").parse(
-                                                sessionData
-                                                    .read("patientBirthDate")
+                                                UserPreferences
+                                                        .getPatientBirthDate()
                                                     .toString()))),
                                       ],
                                     ),
@@ -386,8 +379,8 @@ class ProfilePage extends StatelessWidget {
                                       children: [
                                         Text(DateFormat("yyyy-MM-dd").format(
                                             DateFormat("yyyy-MM-dd").parse(
-                                                sessionData
-                                                    .read("patientMemberSince")
+                                                UserPreferences
+                                                        .getPatientMemberSince()
                                                     .toString()))),
                                       ],
                                     ),

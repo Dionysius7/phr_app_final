@@ -38,12 +38,13 @@ dev_dependencies:
   flutter_easyloading: ^3.0.0
   flutter_statusbar_manager: ^2.0.0
   get: ^4.1.4
-  get_storage: ^2.0.2
+  # get_storage: ^2.0.2
   http: ^0.13.3
   intl: ^0.17.0
   introduction_screen: ^2.1.0
   pinput: ^1.2.0
   qr_flutter: ^4.0.0
+  shared_preferences: ^2.0.6
   url_launcher: ^6.0.9
 
 # For information on the generic Dart part of this file, see the
@@ -79,6 +80,13 @@ flutter:
     - assets/logo_with_background_1.png
     - assets/logo_with_background_2.png
     - assets/logo_with_background_3.png
+    - assets/empty_notif_page.png
+    - assets/empty_condition_page.png
+    - assets/empty_history_page.png
+    - assets/item_condition.png
+    - assets/item_patient.png
+    - assets/item_notif.png
+    - assets/item_notif_empty.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

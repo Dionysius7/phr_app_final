@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:phr_app_final/controllers/home_controller.dart';
+import 'package:phr_app_final/controllers/notification_controller.dart';
+import 'package:phr_app_final/utils/user_preferences.dart';
 import 'package:phr_app_final/views/menu/notification_page.dart';
 import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:get_storage/get_storage.dart';
+// import 'package:get_storage/get_storage.dart';
 
 class HomePage extends StatelessWidget {
-  final sessionData = GetStorage();
+  // final sessionData = GetStorage();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final homeController = Get.put(HomeController());
+    final notificationController = Get.put(NotificationController());
+    notificationController.fetchNotifData();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -30,7 +34,15 @@ class HomePage extends StatelessWidget {
               },
               child: Padding(
                 padding: const EdgeInsets.only(right: 15.0),
-                child: Icon(Icons.notifications),
+                child: notificationController.dataNotification.length == 0
+                    ? Image.asset(
+                        'assets/item_notif_empty.png',
+                        width: size.width / 20,
+                      )
+                    : Image.asset(
+                        'assets/item_notif.png',
+                        width: size.width / 20,
+                      ),
               ))
         ],
       ),
@@ -104,8 +116,8 @@ class HomePage extends StatelessWidget {
                                                     TextSpan(
                                                         text: "Welcome back, "),
                                                     TextSpan(
-                                                      text: sessionData
-                                                          .read("patientName"),
+                                                      text: UserPreferences
+                                                          .getPatientName(),
                                                       style: TextStyle(
                                                           color:
                                                               Color(0xFF494da0),
@@ -134,8 +146,8 @@ class HomePage extends StatelessWidget {
                                                         MainAxisAlignment
                                                             .center,
                                                     children: [
-                                                      (sessionData.read(
-                                                                  "patientGender") ==
+                                                      (UserPreferences
+                                                                  .getPatientGender() ==
                                                               "Male")
                                                           ? Image.asset(
                                                               "assets/male_aura.png",

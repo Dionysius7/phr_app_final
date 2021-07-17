@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:phr_app_final/utils/user_preferences.dart';
 import 'package:phr_app_final/views/menu/notification_page.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:get_storage/get_storage.dart';
+// import 'package:get_storage/get_storage.dart';
 
 class QRPage extends StatelessWidget {
-  final sessionData = GetStorage();
+  // final sessionData = GetStorage();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -15,21 +16,8 @@ class QRPage extends StatelessWidget {
           backgroundColor: Color(0xFF494da0),
           title: Padding(
             padding: const EdgeInsets.only(left: 5.0),
-            child: Image.asset(
-              'assets/text_logo.png',
-              width: size.width / 2,
-            ),
+            child: Text("QR Scan"),
           ),
-          actions: [
-            InkWell(
-                onTap: () {
-                  Get.to(NotificationPage());
-                },
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 15.0),
-                  child: Icon(Icons.notifications),
-                ))
-          ],
         ),
         body: Container(
             color: Color(0xFFe2e7f1),
@@ -68,7 +56,7 @@ class QRPage extends StatelessWidget {
                                 border: Border.all(color: Color(0xff494da0))),
                             padding: EdgeInsets.all(4),
                             child: QrImage(
-                              data: sessionData.read("patientId"),
+                              data: UserPreferences.getPatientId().toString(),
                               version: QrVersions.auto,
                               size: MediaQuery.of(context).size.width / 2,
                               gapless: false,

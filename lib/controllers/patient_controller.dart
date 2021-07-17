@@ -7,12 +7,12 @@ import 'package:phr_app_final/models/user.dart';
 import 'package:phr_app_final/service.dart';
 import 'package:get/get.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:get_storage/get_storage.dart';
+// import 'package:get_storage/get_storage.dart';
 
 class PatientController extends GetxController {
   var service = new Service();
   var constant = new Const();
-  GetStorage sessionData = GetStorage();
+  // GetStorage sessionData = GetStorage();
   List<UserModel> patient = <UserModel>[].obs;
   RxBool isLoading = false.obs;
 
