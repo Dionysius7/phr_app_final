@@ -23,88 +23,89 @@ class UserPreferences {
     await _preferencees!.setBool(_keyFirstTime, status);
   }
 
-  static bool? getFirstTimeStatus() {
-    _preferencees!.getBool(_keyFirstTime);
+  static bool getFirstTimeStatus() {
+    return _preferencees!.getBool(_keyFirstTime) ?? true;
   }
 
   static Future setIsLoggedStatus(bool status) async {
     await _preferencees!.setBool(_keyIsLogged, status);
   }
 
-  static bool? getIsLoggedStatus() {
-    _preferencees!.getBool(_keyIsLogged);
+  static bool getIsLoggedStatus() {
+    return _preferencees!.getBool(_keyIsLogged) ?? false;
   }
 
   static Future setPatientId(String info) async {
     await _preferencees!.setString(_keyPatientId, info);
   }
 
-  static String? getPatientId() {
-    _preferencees!.getString(_keyPatientId);
+  static String getPatientId() {
+    return _preferencees!.getString(_keyPatientId) ?? "";
   }
 
   static Future setPatientName(String info) async {
     await _preferencees!.setString(_keyPatientName, info);
+    print(_preferencees!.getString(_keyPatientName));
   }
 
-  static String? getPatientName() {
-    _preferencees!.getString(_keyPatientName);
+  static String getPatientName() {
+    return _preferencees!.getString(_keyPatientName) ?? "";
   }
 
   static Future setPatientGender(String info) async {
     await _preferencees!.setString(_keyPatientGender, info);
   }
 
-  static String? getPatientGender() {
-    _preferencees!.getString(_keyPatientGender);
+  static String getPatientGender() {
+    return _preferencees!.getString(_keyPatientGender) ?? "";
   }
 
   static Future setPatientNik(String info) async {
     await _preferencees!.setString(_keyPatientNik, info);
   }
 
-  static String? getPatientNik() {
-    _preferencees!.getString(_keyPatientNik);
+  static String getPatientNik() {
+    return _preferencees!.getString(_keyPatientNik) ?? "";
   }
 
   static Future setPatientBpjs(String info) async {
     await _preferencees!.setString(_keyPatientBpjs, info);
   }
 
-  static String? getPatientBpjs() {
-    _preferencees!.getString(_keyPatientBpjs);
+  static String getPatientBpjs() {
+    return _preferencees!.getString(_keyPatientBpjs) ?? "";
   }
 
   static Future setPatientBirthDate(String info) async {
     await _preferencees!.setString(_keyPatientBirthDate, info);
   }
 
-  static String? getPatientBirthDate() {
-    _preferencees!.getString(_keyPatientBirthDate);
+  static String getPatientBirthDate() {
+    return _preferencees!.getString(_keyPatientBirthDate) ?? "";
   }
 
   static Future setPatientPhoneNumber(String info) async {
     await _preferencees!.setString(_keyPatientPhoneNumber, info);
   }
 
-  static String? getPatientPhoneNumber() {
-    _preferencees!.getString(_keyPatientPhoneNumber);
+  static String getPatientPhoneNumber() {
+    return _preferencees!.getString(_keyPatientPhoneNumber) ?? "";
   }
 
   static Future setPatientAddress(String info) async {
     await _preferencees!.setString(_keyPatientAddress, info);
   }
 
-  static String? getPatientAddress() {
-    _preferencees!.getString(_keyPatientAddress);
+  static String getPatientAddress() {
+    return _preferencees!.getString(_keyPatientAddress) ?? "";
   }
 
   static Future setPatientMemberSince(String info) async {
     await _preferencees!.setString(_keyPatientMemberSince, info);
   }
 
-  static String? getPatientMemberSince() {
-    _preferencees!.getString(_keyPatientMemberSince);
+  static String getPatientMemberSince() {
+    return _preferencees!.getString(_keyPatientMemberSince) ?? "";
   }
 
   // REMOVE PATIENT CREDENTIALS

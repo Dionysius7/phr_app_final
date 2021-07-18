@@ -36,6 +36,7 @@ class ConditionPage extends StatelessWidget {
                     if (snapshot.data == "200") {
                       return Expanded(
                         child: ListView.builder(
+                          padding: EdgeInsets.only(bottom: 80),
                           itemCount: conditionController.condition.length,
                           itemBuilder: (context, index) {
                             return Container(

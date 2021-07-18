@@ -83,180 +83,267 @@ class NotificationPage extends StatelessWidget {
                             ),
                           );
                         } else {
-                          return Expanded(
-                            child: ListView.builder(
-                              itemCount: notificationController
-                                  .dataNotification.length,
-                              itemBuilder: (context, index) {
-                                return Container(
-                                  color: Colors.white,
-                                  child: ListTile(
-                                    title: Row(
-                                      children: [
-                                        //Left Side
-                                        Expanded(
-                                          flex: 1,
-                                          child: Container(
-                                            // color: Colors.red,
-                                            padding: EdgeInsets.all(15),
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                notificationController
-                                                            .dataNotification[
-                                                                index]
-                                                            .type ==
-                                                        "patient"
-                                                    ? Image.asset(
-                                                        "assets/item_patient.png",
-                                                        width: size.width / 5,
-                                                      )
-                                                    : Image.asset(
-                                                        "assets/item_condition.png",
-                                                        width: size.width / 5,
-                                                      ),
-                                              ],
-                                            ),
+                          return Obx(() => notificationController
+                                  .dataNotification.isEmpty
+                              ? Expanded(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        "assets/empty_notif_page.png",
+                                        width: size.width / 1.5,
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 15.0),
+                                        child: Text(
+                                          "Nothing here...",
+                                          style: TextStyle(
+                                              color: Colors.grey[700],
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 24),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 15.0),
+                                        child: Text(
+                                          "There is no notifications for now",
+                                          style: TextStyle(
+                                            color: Colors.grey[600],
+                                            fontSize: 20,
                                           ),
                                         ),
-                                        //Right Side
-                                        Expanded(
-                                            flex: 2,
-                                            child: Column(
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.end,
-                                                  children: [
-                                                    Text(
-                                                      '${DateFormat("dd-MM-yyyy").format(DateFormat("yyyy-MM-dd").parse(notificationController.dataNotification[index].timestamp.toString()))}',
-                                                      style: TextStyle(
-                                                        color: Colors.grey,
-                                                        fontSize: 12,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Container(
-                                                  margin:
-                                                      EdgeInsets.only(top: 10),
-                                                  child: Text(
-                                                    '${notificationController.dataNotification[index].hospitalName}',
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontSize: 18,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.grey[800],
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  child: Text(
-                                                    'requesting your ${notificationController.dataNotification[index].type} data',
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.grey[500],
-                                                    ),
-                                                  ),
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      width: size.width / 4,
-                                                      child: MaterialButton(
-                                                          padding: EdgeInsets
-                                                              .symmetric(
-                                                                  horizontal:
-                                                                      size.width /
-                                                                          15),
-                                                          onPressed: () async {
-                                                            EasyLoading.show(
-                                                                status:
-                                                                    "Loading...",
-                                                                maskType:
-                                                                    EasyLoadingMaskType
-                                                                        .black);
-                                                            await notificationController.updateNotifStatus(
-                                                                "confirm",
-                                                                notificationController
-                                                                    .dataNotification[
-                                                                        index]
-                                                                    .notificationId
-                                                                    .toString());
-                                                            EasyLoading
-                                                                .dismiss();
-                                                          },
-                                                          child: Text("Confirm",
-                                                              style: TextStyle(
-                                                                fontSize: 12,
-                                                              )),
-                                                          color: Colors.green,
-                                                          textColor:
-                                                              Colors.white,
-                                                          shape: new RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  new BorderRadius
-                                                                          .circular(
-                                                                      35))),
-                                                    ),
-                                                    SizedBox(
-                                                      width: size.width / 50,
-                                                    ),
-                                                    Container(
-                                                      width: size.width / 4,
-                                                      child: MaterialButton(
-                                                          onPressed: () async {
-                                                            EasyLoading.show(
-                                                                status:
-                                                                    "Loading...",
-                                                                maskType:
-                                                                    EasyLoadingMaskType
-                                                                        .black);
-                                                            await notificationController.updateNotifStatus(
-                                                                "reject",
-                                                                notificationController
-                                                                    .dataNotification[
-                                                                        index]
-                                                                    .notificationId
-                                                                    .toString());
-                                                            EasyLoading
-                                                                .dismiss();
-                                                          },
-                                                          padding: EdgeInsets
-                                                              .symmetric(
-                                                                  horizontal:
-                                                                      size.width /
-                                                                          15),
-                                                          child: Text("Reject"),
-                                                          color: Colors.red,
-                                                          textColor:
-                                                              Colors.white,
-                                                          shape: new RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  new BorderRadius
-                                                                          .circular(
-                                                                      35))),
-                                                    )
-                                                  ],
-                                                ),
-                                              ],
-                                            )),
-                                      ],
-                                    ),
+                                      ),
+                                      Container(
+                                        padding: const EdgeInsets.all(15.0),
+                                        width: size.width / 1.5,
+                                        child: MaterialButton(
+                                            onPressed: () {
+                                              Get.offAll(MenuPage());
+                                            },
+                                            child: Text("Back to home"),
+                                            color: Color(0xFF494da0),
+                                            textColor: Colors.white,
+                                            padding: EdgeInsets.all(15),
+                                            shape: new RoundedRectangleBorder(
+                                                borderRadius:
+                                                    new BorderRadius.circular(
+                                                        35))),
+                                      )
+                                    ],
                                   ),
-                                );
-                              },
-                            ),
-                          );
+                                )
+                              : Expanded(
+                                  child: ListView.builder(
+                                    padding: EdgeInsets.only(bottom: 80),
+                                    itemCount: notificationController
+                                        .dataNotification.length,
+                                    itemBuilder: (context, index) {
+                                      return Container(
+                                        color: Colors.white,
+                                        child: ListTile(
+                                          title: Row(
+                                            children: [
+                                              //Left Side
+                                              Expanded(
+                                                flex: 1,
+                                                child: Container(
+                                                  // color: Colors.red,
+                                                  padding: EdgeInsets.all(15),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      notificationController
+                                                                  .dataNotification[
+                                                                      index]
+                                                                  .type ==
+                                                              "patient"
+                                                          ? Image.asset(
+                                                              "assets/item_patient.png",
+                                                              width:
+                                                                  size.width /
+                                                                      5,
+                                                            )
+                                                          : Image.asset(
+                                                              "assets/item_condition.png",
+                                                              width:
+                                                                  size.width /
+                                                                      5,
+                                                            ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              //Right Side
+                                              Expanded(
+                                                  flex: 2,
+                                                  child: Column(
+                                                    children: [
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          Text(
+                                                            '${DateFormat("dd-MM-yyyy").format(DateFormat("yyyy-MM-dd").parse(notificationController.dataNotification[index].timestamp.toString()))}',
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.grey,
+                                                              fontSize: 12,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Container(
+                                                        margin: EdgeInsets.only(
+                                                            top: 10),
+                                                        child: Text(
+                                                          '${notificationController.dataNotification[index].hospitalName}',
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: TextStyle(
+                                                            fontSize: 18,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color: Colors
+                                                                .grey[800],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        child: Text(
+                                                          'requesting your ${notificationController.dataNotification[index].type} data',
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color: Colors
+                                                                .grey[500],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Container(
+                                                            width:
+                                                                size.width / 4,
+                                                            child:
+                                                                MaterialButton(
+                                                                    padding: EdgeInsets.symmetric(
+                                                                        horizontal:
+                                                                            size.width /
+                                                                                15),
+                                                                    onPressed:
+                                                                        () async {
+                                                                      EasyLoading.show(
+                                                                          status:
+                                                                              "Loading...",
+                                                                          maskType:
+                                                                              EasyLoadingMaskType.black);
+                                                                      await notificationController.updateNotifStatus(
+                                                                          "confirm",
+                                                                          notificationController
+                                                                              .dataNotification[index]
+                                                                              .notificationId
+                                                                              .toString());
+                                                                      EasyLoading.showSuccess(
+                                                                          "Success!",
+                                                                          duration:
+                                                                              Duration(milliseconds: 3000));
+
+                                                                      await notificationController
+                                                                          .fetchNotifData();
+
+                                                                      notificationController
+                                                                          .checkStatus();
+                                                                    },
+                                                                    child: Text(
+                                                                        "Confirm",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontSize:
+                                                                              12,
+                                                                        )),
+                                                                    color: Colors
+                                                                        .green,
+                                                                    textColor:
+                                                                        Colors
+                                                                            .white,
+                                                                    shape: new RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            new BorderRadius.circular(35))),
+                                                          ),
+                                                          SizedBox(
+                                                            width:
+                                                                size.width / 50,
+                                                          ),
+                                                          Container(
+                                                            width:
+                                                                size.width / 4,
+                                                            child:
+                                                                MaterialButton(
+                                                                    onPressed:
+                                                                        () async {
+                                                                      EasyLoading.show(
+                                                                          status:
+                                                                              "Loading...",
+                                                                          maskType:
+                                                                              EasyLoadingMaskType.black);
+                                                                      await notificationController.updateNotifStatus(
+                                                                          "reject",
+                                                                          notificationController
+                                                                              .dataNotification[index]
+                                                                              .notificationId
+                                                                              .toString());
+                                                                      EasyLoading.showSuccess(
+                                                                          "Success!",
+                                                                          duration:
+                                                                              Duration(milliseconds: 3000));
+
+                                                                      await notificationController
+                                                                          .fetchNotifData();
+                                                                      notificationController
+                                                                          .checkStatus();
+                                                                    },
+                                                                    padding: EdgeInsets.symmetric(
+                                                                        horizontal:
+                                                                            size.width /
+                                                                                15),
+                                                                    child: Text(
+                                                                        "Reject"),
+                                                                    color: Colors
+                                                                        .red,
+                                                                    textColor:
+                                                                        Colors
+                                                                            .white,
+                                                                    shape: new RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            new BorderRadius.circular(35))),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  )),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ));
                         }
                       } else {
                         return Expanded(

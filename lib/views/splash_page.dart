@@ -1,21 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:phr_app_final/views/intro_page.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final size = MediaQuery.of(context).size;
+    return MaterialApp(
+        home: Scaffold(
       body: SafeArea(
-        child: 
-          Stack(
-            children: [
-              Image.asset('assets/splash_image.png'),
-              Text("HELLO GUYS")
-            ]
-        )
+        child: Stack(
+          children: [
+            Container(
+              padding: EdgeInsets.only(bottom: size.height / 10),
+              color: Color(0xff494da0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/splash_image_2.png",
+                        width: size.width / 1.5,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/splash_bottom_2.png",
+                    width: size.width,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-    );
+    ));
   }
 }

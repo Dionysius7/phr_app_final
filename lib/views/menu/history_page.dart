@@ -84,6 +84,7 @@ class HistoryPage extends StatelessWidget {
                         } else {
                           return Expanded(
                             child: ListView.builder(
+                              padding: EdgeInsets.only(bottom: 80),
                               itemCount:
                                   notificationController.dataHistory.length,
                               itemBuilder: (context, index) {

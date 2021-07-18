@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final homeController = Get.put(HomeController());
     final notificationController = Get.put(NotificationController());
-    notificationController.fetchNotifData();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -32,17 +32,34 @@ class HomePage extends StatelessWidget {
               onTap: () {
                 Get.to(NotificationPage());
               },
-              child: Padding(
-                padding: const EdgeInsets.only(right: 15.0),
-                child: notificationController.dataNotification.length == 0
-                    ? Image.asset(
+              child: FutureBuilder(
+                future: notificationController.fetchNotifData(),
+                builder: (_, snapshot) {
+                  if (snapshot.hasData) {
+                    notificationController.checkStatus();
+
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 15.0),
+                      child: notificationController.dataNotification.length == 0
+                          ? Image.asset(
+                              'assets/item_notif_empty.png',
+                              width: size.width / 20,
+                            )
+                          : Image.asset(
+                              'assets/item_notif.png',
+                              width: size.width / 20,
+                            ),
+                    );
+                  } else {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 15.0),
+                      child: Image.asset(
                         'assets/item_notif_empty.png',
                         width: size.width / 20,
-                      )
-                    : Image.asset(
-                        'assets/item_notif.png',
-                        width: size.width / 20,
                       ),
+                    );
+                  }
+                },
               ))
         ],
       ),

@@ -16,12 +16,14 @@ class NotificationController extends GetxController {
   // GetStorage sessionData = GetStorage();
 
   Future<String> fetchNotifData() async {
-    var response = await service.getAllNotifData(
-        constant.phrNotifGet, UserPreferences.getPatientId());
+    final phrId = UserPreferences.getPatientId();
+
+    var response = await service.getAllNotifData(constant.phrNotifGet, phrId);
     if (response.statusCode == 200) {
       var notifData = notifModelFromJson(response.body);
       allNotification.value = notifData;
       print(response.statusCode);
+      print(allNotification.length);
       return response.statusCode.toString();
     } else {
       //Empty = 400?
