@@ -139,30 +139,38 @@ class HistoryPage extends StatelessWidget {
                                                     ),
                                                   ],
                                                 ),
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      margin: EdgeInsets.only(
-                                                          top: 10),
-                                                      child: Text(
-                                                        '${notificationController.dataHistory[index].hospitalName}',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          fontSize: 18,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color:
-                                                              Colors.grey[800],
+                                                Container(
+                                                  margin:
+                                                      EdgeInsets.only(top: 10),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Flexible(
+                                                        child: Text(
+                                                          '${notificationController.dataHistory[index].hospitalName}',
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: TextStyle(
+                                                            fontSize: 18,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color: Colors
+                                                                .grey[800],
+                                                          ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      child: Text(
+                                                Container(
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
                                                         'requesting your ${notificationController.dataHistory[index].type} data',
                                                         textAlign:
                                                             TextAlign.center,
@@ -174,12 +182,12 @@ class HistoryPage extends StatelessWidget {
                                                               Colors.grey[500],
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                                 Row(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.start,
+                                                      MainAxisAlignment.center,
                                                   children: [
                                                     notificationController
                                                                 .dataHistory[

@@ -138,7 +138,6 @@ class NotificationPage extends StatelessWidget {
                                 )
                               : Expanded(
                                   child: ListView.builder(
-                                    padding: EdgeInsets.only(bottom: 80),
                                     itemCount: notificationController
                                         .dataNotification.length,
                                     itemBuilder: (context, index) {
