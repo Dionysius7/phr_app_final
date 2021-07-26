@@ -1,7 +1,5 @@
 import 'package:get/state_manager.dart';
 import 'package:get/get.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:get/get.dart';
 import 'package:phr_app_final/utils/user_preferences.dart';
 // import 'package:get_storage/get_storage.dart';
 import 'package:phr_app_final/views/login_page.dart';
@@ -15,18 +13,6 @@ class ProfileController extends GetxController {
   Uri contactUrl = Uri.parse(whatsappUrl);
 
   logoutUser() async {
-    // sessionData.remove("patientId");
-    // sessionData.remove("patientName");
-    // sessionData.remove("patientGender");
-    // sessionData.remove("patientNik");
-    // sessionData.remove("patientBpjs");
-    // sessionData.remove("patientBirthDate");
-    // sessionData.remove("patientPhoneNumber");
-    // sessionData.remove(
-    //   "patientAddress",
-    // );
-    // sessionData.remove("patientMemberSince");
-    // sessionData.write("isLogged", false);
     await UserPreferences.removePatientCredentials();
     UserPreferences.setIsLoggedStatus(false);
 

@@ -13,7 +13,6 @@ class NotificationController extends GetxController {
   RxList<NotifModel> dataNotification = <NotifModel>[].obs;
   var service = new Service();
   var constant = new Const();
-  // GetStorage sessionData = GetStorage();
 
   Future<String> fetchNotifData() async {
     final phrId = UserPreferences.getPatientId();
@@ -42,30 +41,6 @@ class NotificationController extends GetxController {
       } else {
         dataHistory.add(item);
       }
-    }
-  }
-
-  Future<String> postPatientNotif(phrIds) async {
-    var response =
-        await service.postNotifToPHR(constant.hospitalNotifPostPatient, phrIds);
-    var result = jsonDecode(response.body);
-
-    if (response.statusCode == 200) {
-      return result['data']['message'];
-    } else {
-      return result['message'];
-    }
-  }
-
-  Future<String> postConditionNotif(phrIds) async {
-    var response = await service.postNotifToPHR(
-        constant.hospitalNotifPostCondition, phrIds);
-    var result = jsonDecode(response.body);
-
-    if (response.statusCode == 200) {
-      return result['data']['message'];
-    } else {
-      return result['message'];
     }
   }
 

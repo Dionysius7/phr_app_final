@@ -1,12 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:phr_app_final/models/user.dart';
 import 'package:phr_app_final/utils/user_preferences.dart';
-import 'package:phr_app_final/views/menu/home_page.dart';
 import 'package:phr_app_final/views/menu/menu_page.dart';
-import 'package:pinput/pin_put/pin_put.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:get_storage/get_storage.dart';
 import 'package:phr_app_final/controllers/patient_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -14,7 +10,6 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 class LoginController extends GetxController {
   final patientDataController = Get.put(PatientController());
   var phoneNumber = "";
-  // final sessionData = GetStorage();
   var verificationCode = "";
 
   void setPhoneNumber(String numbers) {
@@ -100,17 +95,6 @@ class LoginController extends GetxController {
     final patientPhoneNumber = data[0].telecom!.value.toString();
     final patientAddress = data[0].address!.text.toString();
     final patientMemberSince = data[0].timestamp.toString();
-
-    // sessionData.write("isLogged", "true");
-    // sessionData.write("patientId", patientId);
-    // sessionData.write("patientName", patientName);
-    // sessionData.write("patientGender", patientGender);
-    // sessionData.write("patientNik", patientNik);
-    // sessionData.write("patientBpjs", patientBpjs);
-    // sessionData.write("patientBirthDate", patientBirthDate);
-    // sessionData.write("patientPhoneNumber", patientPhoneNumber);
-    // sessionData.write("patientAddress", patientAddress);
-    // sessionData.write("patientMemberSince", patientMemberSince);
 
     UserPreferences.setIsLoggedStatus(true);
     UserPreferences.setPatientId(patientId);
