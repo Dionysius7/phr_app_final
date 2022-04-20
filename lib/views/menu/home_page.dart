@@ -82,17 +82,17 @@ class HomePage extends StatelessWidget {
                     ),
                     Container(
                       width: size.width,
-                      height: size.height / 4,
+                      height: size.height / 3.5,
                       // color: Colors.green,
                       child: Row(
                         children: [
                           Container(
-                            padding: EdgeInsets.fromLTRB(25, 0, 25, 20),
+                            padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
                             width: size.width,
                             // color: Colors.yellow,
-                            height: size.height,
+                            height: size.height / 4,
                             child: Card(
-                              margin: EdgeInsets.only(top: 20),
+                              margin: EdgeInsets.only(top: 0),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
@@ -103,9 +103,9 @@ class HomePage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
-                                    // color: Colors.red,
+                                    // color: Colors.cyan,
                                     width: size.width / 1.2,
-                                    height: size.height / 5,
+                                    height: size.height / 4.5,
                                     child: Column(
                                       children: [
                                         Container(
@@ -152,7 +152,7 @@ class HomePage extends StatelessWidget {
                                               horizontal: 10, vertical: 10),
                                           // color: Colors.red,
                                           width: size.width / 1.2,
-                                          height: size.height / 8,
+                                          height: size.height / 7,
                                           child: Row(
                                             children: [
                                               Expanded(
@@ -200,7 +200,7 @@ class HomePage extends StatelessWidget {
                                                         color:
                                                             Color(0xFF494da0),
                                                         letterSpacing: 2,
-                                                        fontSize: 13),
+                                                        fontSize: 14),
                                                   ),
                                                 ),
                                               ),
